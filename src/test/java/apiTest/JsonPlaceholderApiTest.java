@@ -31,12 +31,8 @@ public class JsonPlaceholderApiTest {
     @Test
     public void getTodo_checkSchema() {
 
-        //EmployeeMother.createValidEmployee();
-
         given().
                 spec(requestSpec).
-                //and().
-                //body(EmployeeMother1.getValidEmployee()).
                 when().
                 get().
                 then().
@@ -53,7 +49,6 @@ public class JsonPlaceholderApiTest {
                 given().
                         spec(requestSpec).
                         and().
-                            //body(EmployeeMother.getValidEmployee()).
                         when().
                             get().
                         then().
