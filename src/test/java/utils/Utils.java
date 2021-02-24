@@ -2,6 +2,6 @@ package utils;
 
 public class Utils {
 
-    public static final String BASE_URI = "https://jsonplaceholder.typicode.com/todos/1";
+    public static final String BASE_URI = "https://api.lyrics.ovh/v1/Coldplay/Adventure of a Lifetime";
 
 }
