@@ -3,7 +3,8 @@ package apiTest;
 import static io.restassured.RestAssured.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static org.hamcrest.Matchers.*;
-
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -25,6 +26,22 @@ public class JsonPlaceholderApiTest {
                 setBaseUri(Utils.BASE_URI).
                 setContentType(ContentType.JSON).
                 build();
+    }
+    
+    @Test
+    public void getMetallicaSong() {
+    	JsonPath jsonPostResponse = 
+	    	
+    		given().    	
+	        spec(requestSpec).
+	        when().
+	        get().
+	        then().
+	        assertThat(). 
+	        extract().	        
+	        body().jsonPath();
+    	String letra = jsonPostResponse.toString();
+    	assertTrue(!letra.isEmpty());
     }
 
 
@@ -57,8 +74,7 @@ public class JsonPlaceholderApiTest {
                             extract().
                             body().jsonPath();
 
-        String id = jsonPostResponse.get("title");
-
+        String id = jsonPostResponse.get("title");        
         Assert.assertThat(jsonPostResponse.get("userId"), is(1));
         Assert.assertThat(jsonPostResponse.get("title"), is("delectus aut autem"));
         Assert.assertThat(jsonPostResponse.get("completed"), is(false));
