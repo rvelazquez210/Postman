@@ -38,13 +38,7 @@
             <version>4.0.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc -->
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>spring-mock-mvc</artifactId>
-            <version>4.0.0</version>
-            <scope>test</scope>
-        </dependency>
+        
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
@@ -97,35 +91,80 @@
             <type>maven-plugin</type>
         </dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-core</artifactId>
-		    <version>5.3.0</version>
-		</dependency>
+	
 		<dependency>
 		    <groupId>com.googlecode.json-simple</groupId>
 		    <artifactId>json-simple</artifactId>
 		    <version>1.1.1</version>
-		</dependency>		
+		</dependency>	
+		
+		
+		<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-java</artifactId>
+	    <version>5.5.0</version>
+	</dependency>
+	  
+	  <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-junit</artifactId>
+	    <version>5.5.0</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-core</artifactId>
+	    <version>5.5.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>gherkin</artifactId>
+	    <version>12.0.0</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm-deps -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-jvm-deps</artifactId>
+	    <version>1.0.6</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-html -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-html</artifactId>
+	    <version>0.2.7</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+	<dependency>
+	    <groupId>net.masterthought</groupId>
+	    <artifactId>cucumber-reporting</artifactId>
+	    <version>5.1.1</version>
+	</dependency>
+	
+  	<!-- https://www.selenium.dev/maven/ -->
+  	<dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>3.141.59</version>
+    </dependency>
+    
+    
+			
 
 
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
