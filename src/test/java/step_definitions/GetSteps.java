@@ -43,14 +43,18 @@ public class GetSteps {
 	@When("^la respuesta es devuelta el status code es 200")
 	public void validacionStatusCode() {
 		assertEquals(200, res.getStatusCode(), "El status code es diferente al esperado: " + res.getStatusCode() );
-		System.out.println("\t Status code obtenido => " + res.getStatusCode());
+
+		System.out.println("\t Status code obtenido => " + res.getStatusCode()+"\t");
+
 	}
 	
 	@Then("^me trae todos los user existentes")
 	public void validacionBodyResponse() {
 		
 		assertNotNull(res.getBody().asString());
-		System.out.println("\\tBody response ==>:  "+ res.getBody().asString());
+
+		System.out.println("\t Body response ==>:  "+ res.getBody().asString()+"\t");
+
 	}
 		
 	

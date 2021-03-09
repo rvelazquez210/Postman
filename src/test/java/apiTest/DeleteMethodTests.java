@@ -19,7 +19,7 @@ public class DeleteMethodTests {
             setContentType(ContentType.JSON).
             setBody(bodyRequest).
             build();
-;
+
 	
  
 	
