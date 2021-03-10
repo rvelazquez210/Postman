@@ -5,13 +5,20 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.*;
+import main.UserObject;
+
+import org.json.simple.JSONObject;
 import org.junit.*;
+
+import com.google.gson.Gson;
+
 import utils.Utils;
 
 import java.io.File;
@@ -20,6 +27,7 @@ import java.util.List;
 public class GetMethodTests {
 		
 		 private static RequestSpecification requestSpec;
+		 UserObject obj;
 		
 		 @BeforeClass
 		    public static void createRequestSpecification() {
@@ -42,7 +50,7 @@ public class GetMethodTests {
 					then().
 					extract().response();
 			
-			System.out.print("\n BODY RESPONSE ALL USERS:  " + res.body().asString());
+			
 		}
 		
 		@Test
@@ -56,7 +64,21 @@ public class GetMethodTests {
 					then().
 					extract().response();
 			
-			System.out.print("\n BODY RESPONSE ONE USER:  " + res.body().asString());			
+			
+			// del response obtengo el body como String
+			String object = res.getBody().asString();
+			
+			// objecto json
+			Gson gson = new Gson();
+			
+			// deserialization usando el objecto String del response y mapeando a la clase UserObject
+			UserObject user = gson.fromJson(object, UserObject.class);
+			
+			// assert al valor de la respuesta
+			assertEquals("fernandoi_test4", user.getUsername());
+			
+			// print en la consola
+			System.out.println("\n\t User value de la respuesta:  " + user.getUsername());
 			
 		}
 		
