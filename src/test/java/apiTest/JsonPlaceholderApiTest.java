@@ -70,7 +70,7 @@ public class JsonPlaceholderApiTest {
                             get().
                         then().
                             assertThat().
-                            statusCode(200).
+                            statusCode(201).
                             extract().
                             body().jsonPath();
 

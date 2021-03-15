@@ -13,15 +13,21 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.*;
 import main.UserObject;
+import mapeo.Posts;
 
 import org.json.simple.JSONObject;
 import org.junit.*;
 
+import com.google.common.graph.ElementOrder.Type;
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import utils.Utils;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class GetMethodTests {
@@ -29,7 +35,7 @@ public class GetMethodTests {
 		 private static RequestSpecification requestSpec;
 		 UserObject obj;
 		
-		 @BeforeClass
+		 //@BeforeClass
 		    public static void createRequestSpecification() {
 
 			// objecto request que sera usado desde cada test
@@ -40,7 +46,7 @@ public class GetMethodTests {
 		    }
 		
 		
-		@Test
+		//@Test
 		public void getAllUsersTest() {
 			Response res = 
 					given().
@@ -53,7 +59,7 @@ public class GetMethodTests {
 			
 		}
 		
-		@Test
+		//@Test
 		public void getOnlyOneUserTest() {
 			String userFiltered = "/fernandoi_test4";
 			Response res = 
@@ -80,6 +86,46 @@ public class GetMethodTests {
 			// print en la consola
 			System.out.println("\n\t User value de la respuesta:  " + user.getUsername());
 			
+		}
+		
+		@Test
+		public void getPosts() {
+			// https://jsonplaceholder.typicode.com/users
+			
+			Gson gson = new Gson();
+			String titulo = "qui est esse";
+			String URL = "https://jsonplaceholder.typicode.com/posts";
+			
+			RequestSpecification reqSpec;
+			reqSpec = new RequestSpecBuilder().
+		            setBaseUri(URL).
+		            //setContentType(ContentType.JSON).	            
+		            build();			
+			
+					// ENVIO GET REQUEST
+					Response res = 
+								given().
+								spec(reqSpec).
+								when().
+								get().
+								then().   
+								extract().response();					
+					// DESEREALIZACION DE LA RESPUESTA
+					Posts[] posts =  gson.fromJson(res.getBody().asString(), Posts[].class);
+					
+					// CONVERSION A ARRAYLIST
+					List <Posts> list = Arrays.asList(posts);
+					
+					// BUSQUEDA EN LA RESPUESTA					
+					list.forEach((nodo) -> {	
+						if(nodo.getTitulo().equals(titulo)) {
+							System.out.println("El titulo: \"" + titulo + "\" esta incluido");
+						}								
+					});
+					
+					//System.out.println(res.getBody().asString());
+					
+					
 		}
 		
 
