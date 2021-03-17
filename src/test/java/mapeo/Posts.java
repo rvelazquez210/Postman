@@ -6,6 +6,7 @@ public class Posts {
 	int id;
 	String title;
 	String body;
+	String address;
 	
 	public Posts(int userId, int id, String title, String body) {
 		userId = userId;

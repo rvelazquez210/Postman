@@ -99,7 +99,8 @@ public class GetMethodTests {
 			RequestSpecification reqSpec;
 			reqSpec = new RequestSpecBuilder().
 		            setBaseUri(URL).
-		            //setContentType(ContentType.JSON).	            
+		            //setContentType(ContentType.JSON).
+		            addHeader("Authorization", "asljfalsjd").
 		            build();			
 			
 					// ENVIO GET REQUEST
