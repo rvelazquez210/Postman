@@ -68,9 +68,9 @@ public class TestsGETComments {
 				String busqueda = valorABuscar;
 				boolean existe = lista.contains(busqueda);
 				if (existe) {
-					System.out.println("El elemento SÍ existe en la lista");
+					System.out.println("El corre SI existe");
 				} else {
-					System.out.println("El elemento no existe");
+					System.out.println("El correo NO existe");
 				}
 				
 		// imprimo toda la respuesta		
