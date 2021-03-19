@@ -88,7 +88,7 @@ public class GetMethodTests {
 			
 		}
 		
-		@Test
+		//@Test
 		public void getPosts() {
 			// https://jsonplaceholder.typicode.com/users
 			

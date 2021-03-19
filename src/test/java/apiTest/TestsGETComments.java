@@ -28,7 +28,7 @@ public class TestsGETComments {
 		// EJERCICIO : asignar el valor a la variable "valorABuscar" de acuerdo a lo asignado en el board 
 		//            del repositorio => https://github.com/i-fer/api-qa/projects
 		
-		String valorABuscar = "";
+		String valorABuscar = "JonDoe@net.net";
 		
 		// objecto que se va a user para deserealizar la respuesta contra la clase Comments.java
 		Gson gson = new Gson();
@@ -48,19 +48,27 @@ public class TestsGETComments {
 							then().   
 							extract().response();					
 		
-		// EJERCICIO: escribir el codigo para la deserealizacion de la respuesta (convierto la respuesta en objectos del tipo "Comments"
-		
+		/* EJERCICIO: escribir el codigo para la deserealizacion de la respuesta 
+				(convierto la respuesta en objectos del tipo "Comments"*/
+				Comments[] comentario = gson.fromJson(res.getBody().asString(), Comments[].class);
 		 
 		// EJERCICIO : escribir el codigo para la conversion a arraylist
-		
+				List<Comments> lista = Arrays.asList(comentario);
 		
 		// VALIDACION : escribir el codigo de acuerdo a la asignacion que cada uno tiene en el dashboard 
 		//  => https://github.com/i-fer/api-qa/projects
 		//
 		//
+				lista.forEach((nodo) -> {	
+					if(nodo.getEmail().equals(valorABuscar)) {
+						System.out.println(valorABuscar);
+					}								
+				});
 		
+		//DEPUES DEL FOR EACH NO ME IMPRIME EL VALOR DE BUSQUEDA.	
+				
 		// imprimo toda la respuesta		
-		System.out.println(res.getBody().asString());
+		//System.out.println(res.getBody().asString());
 				
 				
 	}

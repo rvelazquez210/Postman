@@ -18,7 +18,7 @@ public class HealthChecks {
 
 
 
-    @BeforeClass
+    //@BeforeClass
     public static void createRequestSpecification() {
 
         requestSpec = new RequestSpecBuilder().
@@ -28,7 +28,7 @@ public class HealthChecks {
     }
 
 
-    @Test
+    //@Test
     public void get_healthCheck() {
 
 

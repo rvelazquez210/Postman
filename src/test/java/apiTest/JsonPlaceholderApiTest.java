@@ -19,7 +19,7 @@ public class JsonPlaceholderApiTest {
 
     private static RequestSpecification requestSpec;
 
-    @BeforeClass
+    //@BeforeClass
     public static void createRequestSpecification() {
 
         requestSpec = new RequestSpecBuilder().
@@ -28,7 +28,7 @@ public class JsonPlaceholderApiTest {
                 build();
     }
     
-    @Test
+    //@Test
     public void getMetallicaSong() {
     	JsonPath jsonPostResponse = 
 	    	
@@ -45,7 +45,7 @@ public class JsonPlaceholderApiTest {
     }
 
 
-    @Test
+    //@Test
     public void getTodo_checkSchema() {
 
         given().
@@ -57,7 +57,7 @@ public class JsonPlaceholderApiTest {
                 body(matchesJsonSchema(new File("src/test/java/apiTest/schema/jsonplaceholder-schema.json")));
     }
 
-    @Test
+    //@Test
     public void getTodo_verifyBody() {
 
 

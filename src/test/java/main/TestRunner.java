@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import utils.Utils;
 
-@RunWith(Cucumber.class)
+/*@RunWith(Cucumber.class)
 @CucumberOptions(
 		features="features",
 		glue={"step_definitions"},
@@ -15,4 +15,4 @@ import utils.Utils;
 public class TestRunner{
 	
 	
-}
+}*/
