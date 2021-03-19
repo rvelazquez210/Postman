@@ -59,13 +59,19 @@ public class TestsGETComments {
 		//  => https://github.com/i-fer/api-qa/projects
 		//
 		//
-				lista.forEach((nodo) -> {	
+				/*lista.forEach((nodo) -> {	
 					if(nodo.getEmail().equals(valorABuscar)) {
 						System.out.println(valorABuscar);
 					}								
-				});
-		
-		//DEPUES DEL FOR EACH NO ME IMPRIME EL VALOR DE BUSQUEDA.	
+				});*/
+				
+				String busqueda = valorABuscar;
+				boolean existe = lista.contains(busqueda);
+				if (existe) {
+					System.out.println("El elemento SÍ existe en la lista");
+				} else {
+					System.out.println("El elemento no existe");
+				}
 				
 		// imprimo toda la respuesta		
 		//System.out.println(res.getBody().asString());
