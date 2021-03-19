@@ -1,6 +1,8 @@
 package apiTest;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -59,20 +61,17 @@ public class TestsGETComments {
 		//  => https://github.com/i-fer/api-qa/projects
 		//
 		//
-				/*lista.forEach((nodo) -> {	
-					if(nodo.getEmail().equals(valorABuscar)) {
-						System.out.println(valorABuscar);
-					}								
-				});*/
+		
+				boolean existe = false;
 				
-				String busqueda = valorABuscar;
-				boolean existe = lista.contains(busqueda);
-				if (existe) {
-					System.out.println("El corre SI existe");
-				} else {
-					System.out.println("El correo NO existe");
+				for (Comments comments : lista) {
+					if(lista.get(0).getEmail() == "") {
+						existe = true;
+					}
 				}
 				
+				assertFalse(existe);
+						
 		// imprimo toda la respuesta		
 		//System.out.println(res.getBody().asString());
 				
