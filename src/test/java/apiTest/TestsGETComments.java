@@ -60,17 +60,38 @@ public class TestsGETComments {
 		// VALIDACION : escribir el codigo de acuerdo a la asignacion que cada uno tiene en el dashboard 
 		//  => https://github.com/i-fer/api-qa/projects
 		//
-		//
-		
+				
+				//metodo 1
 				boolean existe = false;
 				
-				for (Comments comments : lista) {
-					if(lista.get(0).getEmail() == "") {
-						existe = true;
+				lista.forEach((nodo) -> {	
+					if(nodo.getEmail().equals(valorABuscar)) {
+						assertFalse(existe);
+					}								
+				});
+				
+				//metodo 2
+				boolean existe2 = false;
+				
+				for (int x = 0; x < lista.size(); x++) {
+					Comments p = lista.get(x);
+					if (p.getEmail().equals(valorABuscar)) {
+						existe2 = true;
+						break; // Terminar ciclo, pues ya lo encontramos
 					}
 				}
 				
-				assertFalse(existe);
+				
+				//metodo 3
+				boolean existe3 = false;
+			
+				for (Comments comments : lista) {
+					if(lista.get(0).getEmail() == valorABuscar) {
+						existe3 = true;
+					}
+				}
+				
+				assertFalse(existe3);
 						
 		// imprimo toda la respuesta		
 		//System.out.println(res.getBody().asString());
