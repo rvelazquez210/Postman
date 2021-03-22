@@ -20,6 +20,7 @@ import mapeo.Posts;
 
 public class TestsGETComments {
 
+	boolean existe = false;
 	
 	@Test
 	public void getPosts() {
@@ -62,15 +63,15 @@ public class TestsGETComments {
 		//
 				
 				//metodo 1
-				boolean existe = false;
-				
 				lista.forEach((nodo) -> {	
 					if(nodo.getEmail().equals(valorABuscar)) {
-						assertFalse(existe);
-					}								
+						existe = true;
+					}
 				});
 				
-				//metodo 2
+				assertFalse(existe);
+				
+				/*metodo 2
 				boolean existe2 = false;
 				
 				for (int x = 0; x < lista.size(); x++) {
@@ -80,8 +81,7 @@ public class TestsGETComments {
 						break; // Terminar ciclo, pues ya lo encontramos
 					}
 				}
-				
-				
+					
 				//metodo 3
 				boolean existe3 = false;
 			
@@ -91,7 +91,7 @@ public class TestsGETComments {
 					}
 				}
 				
-				assertFalse(existe3);
+				assertFalse(existe3);*/
 						
 		// imprimo toda la respuesta		
 		//System.out.println(res.getBody().asString());
