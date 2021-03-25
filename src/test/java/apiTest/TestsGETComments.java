@@ -22,7 +22,7 @@ public class TestsGETComments {
 
 	boolean existe = false;
 	
-	@Test
+	//@Test
 	public void getPosts() {
 		
 		// url del servicio
@@ -62,7 +62,7 @@ public class TestsGETComments {
 		//  => https://github.com/i-fer/api-qa/projects
 		//
 				
-				//metodo 1
+				//metodo 1 - recorre toda la lista
 				lista.forEach((nodo) -> {	
 					if(nodo.getEmail().equals(valorABuscar)) {
 						existe = true;
@@ -71,7 +71,7 @@ public class TestsGETComments {
 				
 				assertFalse(existe);
 				
-				/*metodo 2
+				/*metodo 2 - recorre la lista hasta que encuentra el elemento buscado
 				boolean existe2 = false;
 				
 				for (int x = 0; x < lista.size(); x++) {
