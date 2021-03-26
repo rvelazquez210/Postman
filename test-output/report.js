@@ -5,7 +5,7 @@ formatter.feature({
   "keyword": "Feature",
   "tags": [
     {
-      "name": "@tag"
+      "name": "@test"
     }
   ]
 });
@@ -15,43 +15,51 @@ formatter.scenario({
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@tag"
+      "name": "@test"
     },
     {
-      "name": "@tag2"
+      "name": "@test1"
     }
   ]
 });
 formatter.step({
-  "name": "hago una llamada GET al endpoint /search?country\u003dUnited+States",
+  "name": "hago una llamada GET al endpoint",
   "keyword": "Given "
 });
-formatter.match({});
+formatter.match({
+  "location": "step_definitions.GetStepsUniversity.hago_una_llamada_GET_al_endpoint()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 formatter.step({
   "name": "envio el request",
   "keyword": "When "
 });
-formatter.match({});
+formatter.match({
+  "location": "step_definitions.GetStepsUniversity.envio_el_request()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 formatter.step({
-  "name": "el status code es 200",
+  "name": "el status code es docientos",
   "keyword": "And "
 });
-formatter.match({});
+formatter.match({
+  "location": "step_definitions.GetStepsUniversity.el_status_code_es_docientos()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 formatter.step({
   "name": "me trae la universidad Brandman University",
   "keyword": "Then "
 });
-formatter.match({});
+formatter.match({
+  "location": "step_definitions.GetStepsUniversity.me_trae_la_universidad_Brandman_University()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 });
