@@ -28,7 +28,7 @@ public class GetStepsUniversity {
 		
 	Response respuesta;
 			
-	@Given("hago una llamada GET al endpoint")
+	@Given("^hago una llamada GET al endpoint")
 	public void hago_una_llamada_GET_al_endpoint() {
 	
 		respuesta = 
@@ -44,12 +44,12 @@ public class GetStepsUniversity {
 
 	}
 
-	@When("envio el request")
+	@When("^envio el request")
 	public void envio_el_request() {
 
 	}
 
-	@When("el status code es docientos")
+	@When("^el status code es docientos")
 	public void el_status_code_es_docientos() {
 	
 		assertEquals(200, respuesta.getStatusCode(), "El status code es diferente al esperado: " + respuesta.getStatusCode() );
@@ -58,7 +58,7 @@ public class GetStepsUniversity {
 		
 	}
 
-	@Then("me trae la universidad Brandman University")
+	@Then("^me trae la universidad Brandman University")
 	public void me_trae_la_universidad_Brandman_University() {
 		
 		String buscar = "Brandman University";
@@ -84,8 +84,7 @@ public class GetStepsUniversity {
 		}
 			
 			assertTrue("La universidad no fue encontrada", existe);	
-		
-		
+				
 	}
 
 }
