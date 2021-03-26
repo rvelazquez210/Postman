@@ -27,7 +27,7 @@ public class GetSteps {
 											            setContentType(ContentType.JSON).	            
 											            build();
 	
-	@Given("^hago una llamada GET al endpoint \\/users")
+	//@Given("^hago una llamada GET al endpoint \\/users")
 	public void get() {
 		
 		 res = 
@@ -40,7 +40,7 @@ public class GetSteps {
 		
 	}
 	
-	@When("^la respuesta es devuelta el status code es 200")
+	//@When("^la respuesta es devuelta el status code es 200")
 	public void validacionStatusCode() {
 		assertEquals(200, res.getStatusCode(), "El status code es diferente al esperado: " + res.getStatusCode() );
 
@@ -48,7 +48,7 @@ public class GetSteps {
 
 	}
 	
-	@Then("^me trae todos los user existentes")
+	//@Then("^me trae todos los user existentes")
 	public void validacionBodyResponse() {
 		
 		assertNotNull(res.getBody().asString());

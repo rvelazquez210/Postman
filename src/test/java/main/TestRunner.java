@@ -1,18 +1,19 @@
 package main;
 
 import org.junit.runner.RunWith;
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import utils.Utils;
 
-/*@RunWith(Cucumber.class)
+
+@RunWith(Cucumber.class)
 @CucumberOptions(
-		features="features",
+		features="/Users/Usuario/Documents/CapacitacionPostman/api-qa/src/test/java/features/university.feature",
 		glue={"step_definitions"},
-		tags= "@kanto",
-		plugin= {"pretty","html:test-output"})
+		dryRun= false,
+		plugin= {"pretty","html:test-output"},
+		tags= "@tag")
+
 public class TestRunner{
 	
 	
-}*/
+}
