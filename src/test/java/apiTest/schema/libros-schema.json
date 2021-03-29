@@ -1,0 +1,51 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "nombre_libro": {
+        "type": "string"
+      },
+      "detalles": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "precio": {
+            "type": "number"
+          },
+          "categoria": {
+            "type": "string"
+          },
+          "stock": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "total": {
+                "type": "number"
+              },
+              "reservado": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                  "total_reservados": {
+                    "type": "number"
+                  },
+                  "pagados": {
+                    "type": "object",
+                    "required": [],
+                    "properties": {
+                      "total_pagados": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
