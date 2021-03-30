@@ -12,22 +12,17 @@ import mapeo.Libros.LibrosDetalles;
 import mapeo.Libros.LibrosPagados;
 import mapeo.Libros.LibrosReservado;
 import mapeo.Libros.LibrosStock;
-
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.Assert.assertEquals;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.json.simple.JSONObject;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.gson.Gson;
-
 import static io.restassured.RestAssured.*;
 
 public class POSTStepsCrearLibro {
 	
-	boolean existe = false;
+	String existe = "RAUL141";
 	
 	String URL = "https://cursoapitesting2.getsandbox.com:443";
 	
@@ -43,7 +38,7 @@ public class POSTStepsCrearLibro {
 	@Given("hago una llamada POST al endpoint \\/libros")
 	public void hago_una_llamada_POST_al_endpoint_libros() {
 
-		Libros cuerpo = new Libros("Arbol3", 
+		Libros cuerpo = new Libros(existe, 
 							new LibrosDetalles(20, "test", 
 									new LibrosStock(30, 
 											new LibrosReservado(13, 
@@ -57,12 +52,11 @@ public class POSTStepsCrearLibro {
 				when().
 				post("/libros").
 				then().
-				assertThat()
-				.statusCode(200).
 				extract().
 				response();
 						
-		System.out.println("POST Responde: " + respuesta.body().asString());
+		System.out.println("\n\tPOST Responde: " + respuesta.body().asString() + "\t\n");
+	
 	}
 
 	@When("envio el json con el nuevo registro")
@@ -73,35 +67,30 @@ public class POSTStepsCrearLibro {
 	@When("la respuesta es status code docientos")
 	public void la_respuesta_es_status_code_docientos() {
 		
-		assertEquals(200, respuesta.getStatusCode(), "El status code es diferente al esperado: " + respuesta.getStatusCode() );
-
-		System.out.println("\t El status code es: " + respuesta.getStatusCode()+"\t");
+		Assertions.assertEquals(200, respuesta.getStatusCode(), "\n\tEl status code es diferente al esperado: " + respuesta.getStatusCode() + "\t\n");
+				
+		System.out.println("\n\tEl status code es: " + respuesta.getStatusCode()+ "\t\n");
 	}
 
 	@Then("verifica que se creo el registro con exito")
 	public void verifica_que_se_creo_el_registro_con_exito() {
 		
-		/*String buscar = "arbol7";
-		
-		Libros[] libro = gson.fromJson(respuesta.getBody().asString(), Libros[].class);
-		 
-		List<Libros> lista = Arrays.asList(libro);
-			
-		for (int x = 0; x < lista.size(); x++) {
-			
-			Libros p = lista.get(x);
-			
-			if (p.getNombre_libro().equals(buscar)) {
-								
-				existe = true;
+		respuesta = 
 				
-				break;
-			}
-		}
+				given().
+				spec(reqSpec).
+				when().
+				get("/libros/" + existe).
+				then().
+				extract().
+				response();
+				
+		Libros libro = gson.fromJson(respuesta.getBody().asString(), Libros.class);
 		
-		assertTrue("El libro no fue encontrada", existe);
-	
-	*/	
+		assertEquals(existe, libro.getNombre_libro());
+		
+		System.out.println("\n\t El nombre del libro es: " + libro.getNombre_libro() + "\t\n");
+		
 	}
 
 }

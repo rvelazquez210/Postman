@@ -9,18 +9,23 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertFalse;
+
+import org.junit.jupiter.api.Assertions;
+
+import com.google.gson.Gson;
 
 public class DELETEStepsUnicoLibro {
 	
-	String eliminar= "Arbol2";
+	String eliminar = "PruebaRaul";
 	
 	String URL = "https://cursoapitesting2.getsandbox.com:443";
 	
+	Gson gson = new Gson();
+	
 	Response respuesta;
 	
-    RequestSpecification requestSpec = new RequestSpecBuilder().
+    RequestSpecification reqSpec = new RequestSpecBuilder().
             setBaseUri(URL).
             setContentType(ContentType.JSON).
             build();
@@ -31,28 +36,44 @@ public class DELETEStepsUnicoLibro {
 		respuesta =
 				
 				given().
-				spec(requestSpec).
+				spec(reqSpec).
 				when().
 				delete("/libros/" + eliminar).
 				then().
 				extract().
 				response();
 		
+		System.out.println("\n\tDELETE Responde: " + respuesta.body().asString() + "\t\n");
+		
 	}
 
 	@When("la respuesta envia status code es docientos")
 	public void la_respuesta_envia_status_code_es_docientos() {
 		
-		assertEquals(200, respuesta.statusCode());
+		Assertions.assertEquals(200, respuesta.getStatusCode(), "\n\tEl status code es diferente al esperado: " + respuesta.getStatusCode() + "\t\n");
+		
+		System.out.println("\n\t El status code es: " + respuesta.getStatusCode() + "\t\n");
 		
 	}
 
 	@Then("se elimina el registro")
 	public void se_elimina_el_registro() {
 		
+		respuesta = 
+				
+				given().
+				spec(reqSpec).
+				when().
+				get("/libros/" + eliminar).
+				then().
+				extract().
+				response();
+				
 		String body=respuesta.getBody().asString();
 		
-		assertTrue(body.contains(eliminar));
+		assertFalse(body.contains(eliminar));
+		
+		System.out.println("\n\t GET Responde: " + respuesta.body().asString() + "\t\n");
 				
 	}
 

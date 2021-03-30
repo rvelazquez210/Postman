@@ -15,7 +15,7 @@ import mapeo.Libros.Libros;
 
 public class GETStepsUnicoLibro {
 	
-	String existe = "/TestRaul";
+	String existe = "Prueba_Raul32";
 	
 	String URL = "https://cursoapitesting2.getsandbox.com:443";
 	
@@ -35,10 +35,10 @@ public class GETStepsUnicoLibro {
 				given().
 				spec(reqSpec).
 				when().
-				get("/libros" + existe).
+				get("/libros/" + existe).
 				then().
-				statusCode(200).
-				extract().response();
+				extract().
+				response();
 						
 	}
 	
@@ -58,7 +58,7 @@ public class GETStepsUnicoLibro {
 	
 		Libros libro = gson.fromJson(object, Libros.class);
 		
-		assertEquals("TestRaul", libro.getNombre_libro());
+		assertEquals(existe, libro.getNombre_libro());
 		
 		System.out.println("\n\t El nombre del libro es: " + libro.getNombre_libro());		
 	}
