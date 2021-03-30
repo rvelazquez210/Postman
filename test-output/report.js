@@ -10,7 +10,7 @@ formatter.feature({
   ]
 });
 formatter.scenario({
-  "name": "Llamada al metodo GET que trae todos los libros",
+  "name": "Llama al metodo DELETE que elimina un registro",
   "description": "",
   "keyword": "Scenario",
   "tags": [
@@ -18,79 +18,36 @@ formatter.scenario({
       "name": "@test"
     },
     {
-      "name": "@testgettodos"
+      "name": "@delete"
     }
   ]
 });
 formatter.step({
-  "name": "hago una llamada GET al endpoint /libros",
+  "name": "hago una llamada DELETE al endpoint /libors",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "step_definitions.GETStepsTodosLibros.hago_una_llamada_GET_al_endpoint_libros()"
+  "location": "step_definitions.DELETEStepsUnicoLibro.hago_una_llamada_DELETE_al_endpoint_libors()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "la respuesta es devuelta el status code es 200",
+  "name": "la respuesta envia status code es docientos",
   "keyword": "When "
 });
 formatter.match({
-  "location": "step_definitions.GETStepsTodosLibros.la_respuesta_es_devuelta_el_status_code_es()"
+  "location": "step_definitions.DELETEStepsUnicoLibro.la_respuesta_envia_status_code_es_docientos()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "me trae todos los user existentes",
+  "name": "se elimina el registro",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "step_definitions.GETStepsTodosLibros.me_trae_todos_los_user_existentes()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Llamada al metodo GET que trae un solo libro",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@test"
-    },
-    {
-      "name": "@testgetunico"
-    }
-  ]
-});
-formatter.step({
-  "name": "hago una llamada GET al endpoint /libros/nombre_libro",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "step_definitions.GETStepsUnicoLibro.hago_una_llamada_GET_al_endpoint_libros()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "la respuesta es devuelta el status code es docientos",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "step_definitions.GETStepsUnicoLibro.la_respuesta_es_devuelta_el_status_code_es()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "me trae el libro especificado",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "step_definitions.GETStepsUnicoLibro.me_trae_el_libro_especificado()"
+  "location": "step_definitions.DELETEStepsUnicoLibro.se_elimina_el_registro()"
 });
 formatter.result({
   "status": "passed"

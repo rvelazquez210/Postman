@@ -11,9 +11,10 @@ import io.cucumber.junit.CucumberOptions;
 		glue = {"step_definitions"},
 		dryRun = false,
 		plugin = {"pretty","html:test-output"},
-		tags = {"@test"},
+		tags = {"@delete"},
 		strict = true)
 
 public class TestRunner{
+	
 	
 }
