@@ -20,6 +20,13 @@ Scenario: Llamada al metodo POST que crea un registro
 	And la respuesta es status code docientos
 	Then verifica que se creo el registro con exito
 	
+@put
+Scenario: LLamada al metodo PUT que actualiza un registro
+	Given hago una llamada PUT al endpoint /libros/nombre_libro
+	When actualizo las keys nombre_libro y total_pagos
+	And el status code devuelto es dociento
+	Then se actualiza el registro
+	
 @delete
 Scenario: Llama al metodo DELETE que elimina un registro
 	Given hago una llamada DELETE al endpoint /libors
