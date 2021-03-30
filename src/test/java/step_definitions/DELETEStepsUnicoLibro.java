@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 
 public class DELETEStepsUnicoLibro {
 	
-	String eliminar = "PruebaRaul";
+	String eliminar = "Prueba_Raul";
 	
 	String URL = "https://cursoapitesting2.getsandbox.com:443";
 	

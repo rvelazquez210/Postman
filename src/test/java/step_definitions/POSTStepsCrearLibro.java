@@ -15,6 +15,7 @@ import mapeo.Libros.LibrosStock;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.testng.Assert.assertEquals;
 
+import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Assertions;
 
 import com.google.gson.Gson;
@@ -22,7 +23,7 @@ import static io.restassured.RestAssured.*;
 
 public class POSTStepsCrearLibro {
 	
-	String existe = "RAUL141";
+	String existe = "Prueba_Raul";
 	
 	String URL = "https://cursoapitesting2.getsandbox.com:443";
 	
@@ -43,6 +44,10 @@ public class POSTStepsCrearLibro {
 									new LibrosStock(30, 
 											new LibrosReservado(13, 
 													new LibrosPagados(7)))));
+		/*JSONObject body = new JSONObject();
+		
+		body.put("nombre_libro", "testRaul");
+		body.put(cuerpo, body)*/
 			
 		respuesta =
 								

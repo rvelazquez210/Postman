@@ -31,18 +31,19 @@ public class GETStepsTodosLibros {
 				when().
 				get().
 				then().
-				statusCode(200).
 				extract().
 				response();
+		
+		System.out.println("\n\tGET Responde: " + respuesta.body().asString() + "\t\n");
 		
 	}
 
 	@When("la respuesta es devuelta el status code es 200")
 	public void la_respuesta_es_devuelta_el_status_code_es() {
 	
-		assertEquals(200, respuesta.getStatusCode(), "El status code es diferente al esperado: " + respuesta.getStatusCode() );
+		assertEquals(200, respuesta.getStatusCode(), "\n\tEl status code es diferente al esperado: " + respuesta.getStatusCode() + "\t\n");
 
-		System.out.println("\t Status code es: " + respuesta.getStatusCode()+"\t");
+		System.out.println("\n\t Status code es: " + respuesta.getStatusCode() + "\t\n");
 		
 	}
 
@@ -51,7 +52,8 @@ public class GETStepsTodosLibros {
 		
 		assertNotNull(respuesta.getBody().asString());
 
-		System.out.println("\t Body response ==>:  "+ respuesta.getBody().asString()+"\t");
+		System.out.println("\n\t Body response ==>:  "+ respuesta.getBody().asString() + "\t\n");
+	
 	}
 
 }

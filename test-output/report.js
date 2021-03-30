@@ -10,7 +10,7 @@ formatter.feature({
   ]
 });
 formatter.scenario({
-  "name": "Llama al metodo DELETE que elimina un registro",
+  "name": "LLamada al metodo PUT que actualiza un registro",
   "description": "",
   "keyword": "Scenario",
   "tags": [
@@ -18,36 +18,46 @@ formatter.scenario({
       "name": "@test"
     },
     {
-      "name": "@delete"
+      "name": "@put"
     }
   ]
 });
 formatter.step({
-  "name": "hago una llamada DELETE al endpoint /libors",
+  "name": "hago una llamada PUT al endpoint /libros/nombre_libro",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "step_definitions.DELETEStepsUnicoLibro.hago_una_llamada_DELETE_al_endpoint_libors()"
+  "location": "step_definitions.PUTStepsAltualizarLibro.hago_una_llamada_PUT_al_endpoint_libros_nombre_libro()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "la respuesta envia status code es docientos",
+  "name": "actualizo las keys nombre_libro y total_pagos",
   "keyword": "When "
 });
 formatter.match({
-  "location": "step_definitions.DELETEStepsUnicoLibro.la_respuesta_envia_status_code_es_docientos()"
+  "location": "step_definitions.PUTStepsAltualizarLibro.actualizo_las_keys_nombre_libro_y_total_pagos()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "se elimina el registro",
+  "name": "el status code devuelto es dociento",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "step_definitions.PUTStepsAltualizarLibro.el_status_code_devuelto_es_dociento()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "se actualiza el registro",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "step_definitions.DELETEStepsUnicoLibro.se_elimina_el_registro()"
+  "location": "step_definitions.PUTStepsAltualizarLibro.se_actualiza_el_registro()"
 });
 formatter.result({
   "status": "passed"

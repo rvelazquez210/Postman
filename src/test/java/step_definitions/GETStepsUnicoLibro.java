@@ -15,7 +15,7 @@ import mapeo.Libros.Libros;
 
 public class GETStepsUnicoLibro {
 	
-	String existe = "Prueba_Raul32";
+	String existe = "PruebaRaul";
 	
 	String URL = "https://cursoapitesting2.getsandbox.com:443";
 	
@@ -39,15 +39,17 @@ public class GETStepsUnicoLibro {
 				then().
 				extract().
 				response();
+		
+		System.out.println("\n\tGET Responde: " + respuesta.body().asString() + "\t\n");
 						
 	}
 	
 	@When("la respuesta es devuelta el status code es docientos")
 	public void la_respuesta_es_devuelta_el_status_code_es() {
 	
-		assertEquals(200, respuesta.getStatusCode(), "El status code es diferente al esperado: " + respuesta.getStatusCode() );
+		assertEquals(200, respuesta.getStatusCode(), "\n\tEl status code es diferente al esperado: " + respuesta.getStatusCode() + "\t\n");
 
-		System.out.println("\t Status code es: " + respuesta.getStatusCode()+"\t");
+		System.out.println("\n\tStatus code es: " + respuesta.getStatusCode() + "\t\n");
 		
 	}
 	
@@ -60,7 +62,8 @@ public class GETStepsUnicoLibro {
 		
 		assertEquals(existe, libro.getNombre_libro());
 		
-		System.out.println("\n\t El nombre del libro es: " + libro.getNombre_libro());		
+		System.out.println("\n\t El nombre del libro es: " + libro.getNombre_libro() + "\t\n");		
+	
 	}
 
 }
